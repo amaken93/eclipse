@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.error{
+	color: red;
+}
+
+.all{
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.calc{
+	padding: 10px;
+	box-shadow: 0 0 10px gray;
+	border-radius: 5px;
+}
+
+h1{
+	text-align: center;
+}
+
+.submit{
+	margin-top: 10px;
+}

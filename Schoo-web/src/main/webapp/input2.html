@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="calc.css">
 </head>
 <body>
-<h1>数値計算</h1>
-<form action="CalcServlet" method="post">
-	<input type="text" name="num1"/><br/>
-	+<br/>
-	<input type="text" name="num2"/><br/>
-	<input type="submit" value="計算する"/>
-</form>
+	<div class="all">
+		<h1>数値計算</h1>
+		<form action="CalcServlet" method="post">
+			<div class="calc">
+				<input type="text" name="num1" /><br />
+				<select name="operator">
+					<option value="plus">＋</option>
+					<option value="minus">－</option>
+					<option value="multiply">×</option>
+					<option value="divide">÷</option>
+				</select><br />
+				<input type="text" name="num2" /><br />
+				<input class="submit" type="submit" value="計算する" />
+			</div>
+		</form>
+	</div>
 </body>
+
 </html>
