@@ -31,14 +31,17 @@ public class TimeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		Calendar cl = Calendar.getInstance();
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-//		String now =sdf.format(cl.getTime());
 		LocalDateTime now= LocalDateTime.now();
 		
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm:ss");
 		
-		request.setAttribute("now", now.format(dtf));
+		int hour = Integer.parseInt(request.getParameter("hour"));
+		LocalDateTime future = now.plusHours(hour);
+		
+		request.setAttribute("ndate", now.format(date));
+		request.setAttribute("ntime", now.format(time));
+		request.setAttribute("ftime", future.format(time));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("output.jsp");
 		rd.forward(request, response);
