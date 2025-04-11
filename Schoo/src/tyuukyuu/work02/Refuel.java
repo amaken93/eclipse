@@ -1,4 +1,4 @@
-package tyuukyuu.work3;
+package tyuukyuu.work02;
 
 public interface Refuel {
 	public void refuel();

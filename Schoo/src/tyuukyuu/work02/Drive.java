@@ -1,4 +1,4 @@
-package tyuukyuu.work3;
+package tyuukyuu.work02;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

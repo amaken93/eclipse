@@ -1,4 +1,4 @@
-package tyuukyuu.work2;
+package tyuukyuu.work01;
 
 public class Truck implements Car, Refuel {
 
