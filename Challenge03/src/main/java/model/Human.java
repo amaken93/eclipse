@@ -3,10 +3,12 @@ package model;
 public class Human {
 	private String name;
 	private int age;
+	private String group;
 
-	public Human(String name, int age) {
+	public Human(String name, int age, String group) {
 		this.name = name;
 		this.age = age;
+		this.group = group;
 	}
 
 	public String getName() {
@@ -23,6 +25,14 @@ public class Human {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public void setGroup(String group) {
+		this.group = group;
 	}
 
 }

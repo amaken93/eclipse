@@ -44,10 +44,11 @@ public class InputServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		String age = request.getParameter("age");
+		String group = request.getParameter("group");
 		
 		HumanManager hm = new HumanManager();
-		hm.setHuman(name, age);
-
+		hm.setHuman(name, age, group);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("output.jsp");
 		rd.forward(request, response);
 	}

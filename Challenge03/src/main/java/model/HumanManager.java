@@ -12,14 +12,15 @@ public class HumanManager {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 
-	public void setHuman(String name, String age) {
+	public void setHuman(String name, String age, String group) {
 		try {
 			getConnection();
 
-			String sql = "INSERT INTO user_list (name, age) VALUES(?, ?)";
+			String sql = "INSERT INTO user_list (name, age, group_id) VALUES(?, ?, ?)";
 			ps = co.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setInt(2, Integer.parseInt(age));
+			ps.setInt(3, Integer.parseInt(group));
 			ps.executeUpdate();
 
 			co.commit();
@@ -42,13 +43,14 @@ public class HumanManager {
 		try {
 			getConnection();
 
-			String sql = "SELECT * FROM user_list";
+			String sql = "SELECT * FROM user_list INNER JOIN group_list on user_list.group_id = group_list.group_id";
 			ps = co.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				String name = rs.getString("name");
 				int age = rs.getInt("age");
-				Human human = new Human(name, age);
+				String group = rs.getString("group_name");
+				Human human = new Human(name, age, group);
 				list.add(human);
 			}
 		} catch (Exception e) {
